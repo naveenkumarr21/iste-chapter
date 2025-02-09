@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Squid Game Navbar</title>
+    <style src="events.css" rel="stylesheet"></style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            background: #000;
+            color: white;
+        }
+
+        nav {
+            background: #000000;
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        label.logo {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 16px;
+            padding: 8px 10px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        a.active,
+        a:hover {
+            background: #008238;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                flex-direction: row;
+                align-items: center;
+                padding: 10px 0;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            label.logo {
+                margin-bottom: 10px;
+            }
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 150px;
+            /* Adjust size as needed */
+            height: 50px;
+        }
+
+
+        #home {
+            background: url('https://wallpapercave.com/wp/wp9929782.jpg') no-repeat center center/cover;
+        }
+
+        #events {
+            background: url('https://wallpapercave.com/wp/wp9600517.jpg') no-repeat center center/cover;
+        }
+
+        #timeline {
+            background: url('https://wallpapercave.com/wp/wp9832545.jpg') no-repeat center center/cover;
+        }
+
+        #contact {
+            background: url('https://wallpapercave.com/wp/wp9832543.jpg') no-repeat center center/cover;
+        }
+
+        .heading {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+            /* Ensures heading is centered */
+            width: 100%;
+            /* Takes full width to stay centered */
+        }
+
+
+        .ag-format-container {
+            width: 1142px;
+            margin: 0 auto;
+        }
+
+
+        body {
+            background-color: #000;
+        }
+
+        .ag-courses_box {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+
+            padding: 50px 0;
+        }
+
+        .ag-courses_item {
+            -ms-flex-preferred-size: calc(33.33333% - 30px);
+            flex-basis: calc(33.33333% - 30px);
+
+            margin: 0 15px 30px;
+
+            overflow: hidden;
+
+            border-radius: 28px;
+        }
+
+        .ag-courses-item_link {
+            display: block;
+            padding: 30px 20px;
+            background-color: #121212;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .ag-courses-item_link:hover,
+        .ag-courses-item_link:hover .ag-courses-item_date {
+            text-decoration: none;
+            color: #FFF;
+        }
+
+        .ag-courses-item_link:hover .ag-courses-item_bg {
+            -webkit-transform: scale(10);
+            -ms-transform: scale(10);
+            transform: scale(10);
+        }
+
+        .ag-courses-item_title {
+            min-height: 87px;
+            margin: 0 0 25px;
+
+            overflow: hidden;
+
+            font-weight: bold;
+            font-size: 30px;
+            color: #FFF;
+
+            z-index: 2;
+            position: relative;
+        }
+
+        .ag-courses-item_date-box {
+            font-size: 18px;
+            color: #FFF;
+
+            z-index: 2;
+            position: relative;
+        }
+
+        .ag-courses-item_date {
+            font-weight: bold;
+            color: #f9b234;
+
+            -webkit-transition: color .5s ease;
+            -o-transition: color .5s ease;
+            transition: color .5s ease
+        }
+
+        .ag-courses-item_bg {
+            height: 128px;
+            width: 128px;
+            background-color: #f9b234;
+
+            z-index: 1;
+            position: absolute;
+            top: -75px;
+            right: -75px;
+
+            border-radius: 50%;
+
+            -webkit-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease;
+        }
+
+        .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+            background-color: #3ecd5e;
+        }
+
+        .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+            background-color: #e44002;
+        }
+
+        .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+            background-color: #952aff;
+        }
+
+        .ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+            background-color: #cd3e94;
+        }
+
+        .ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+            background-color: #4c49ea;
+        }
+
+
+
+        @media only screen and (max-width: 979px) {
+            .ag-courses_item {
+                -ms-flex-preferred-size: calc(50% - 30px);
+                flex-basis: calc(50% - 30px);
+            }
+
+            .ag-courses-item_title {
+                font-size: 14px;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .ag-format-container {
+                width: 96%;
+            }
+
+        }
+
+        @media only screen and (max-width: 639px) {
+            .ag-courses_item {
+                -ms-flex-preferred-size: 100%;
+                flex-basis: 100%;
+            }
+
+            .ag-courses-item_title {
+                min-height: 72px;
+                line-height: 1;
+
+                font-size: 10px;
+            }
+
+            .ag-courses-item_link {
+                padding: 20px 10px;
+            }
+
+            .ag-courses-item_date-box {
+                font-size: 10px;
+            }
+        }
+
+        .container4 {
+            margin: 10px;
+            padding: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <label class="logo">
+            <img src="https://titanui.com/wp-content/uploads/2021/10/21/Squid-Game-Logo-Vector.jpg"
+                alt="Squid Game Logo">
+        </label>
+
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="timeline.html">Timeline</a></li>
+
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container4">
+        <div class="ag-format-container">
+            <div class="ag-courses_box">
+                <div class="ag-courses_item">
+                    <a href="#" class="ag-courses-item_link">
+                        <div class="ag-courses-item_bg"></div>
+
+                        <div class="ag-courses-item_title">
+                            Ranjithkumar&#160;<br><br>
+                            <h5>Chairperson</h5>
+                        </div>
+
+                        <div class="ag-courses-item_date-box">
+                            Contact:
+                            <span class="ag-courses-item_date">
+                                1234567890
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="ag-courses_item">
+                    <a href="#" class="ag-courses-item_link">
+                        <div class="ag-courses-item_bg"></div>
+
+                        <div class="ag-courses-item_title">
+                            Ranjithkumar&#160;<br><br>
+                            <h5>Chairperson</h5>
+                        </div>
+
+                        <div class="ag-courses-item_date-box">
+                            Contact:
+                            <span class="ag-courses-item_date">
+                                1234567890
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="ag-courses_item">
+                    <a href="#" class="ag-courses-item_link">
+                        <div class="ag-courses-item_bg"></div>
+
+                        <div class="ag-courses-item_title">
+                            Ranjithkumar&#160;<br><br>
+                            <h5>Chairperson</h5>
+                        </div>
+
+                        <div class="ag-courses-item_date-box">
+                            Contact:
+                            <span class="ag-courses-item_date">
+                                1234567890
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="ag-courses_item">
+                    <a href="#" class="ag-courses-item_link">
+                        <div class="ag-courses-item_bg"></div>
+
+                        <div class="ag-courses-item_title">
+                            Ranjithkumar&#160;<br><br>
+                            <h5>Chairperson</h5>
+                        </div>
+
+                        <div class="ag-courses-item_date-box">
+                            Contact:
+                            <span class="ag-courses-item_date">
+                                1234567890
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="ag-courses_item">
+                    <a href="#" class="ag-courses-item_link">
+                        <div class="ag-courses-item_bg"></div>
+
+                        <div class="ag-courses-item_title">
+                            Ranjithkumar&#160;<br><br>
+                            <h5>Chairperson</h5>
+                        </div>
+
+                        <div class="ag-courses-item_date-box">
+                            Contact:
+                            <span class="ag-courses-item_date">
+                                1234567890
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="ag-courses_item">
+                    <a href="#" class="ag-courses-item_link">
+                        <div class="ag-courses-item_bg"></div>
+
+                        <div class="ag-courses-item_title">
+                            Ranjithkumar&#160;<br><br>
+                            <h5>Chairperson</h5>
+                        </div>
+
+                        <div class="ag-courses-item_date-box">
+                            Contact:
+                            <span class="ag-courses-item_date">
+                                1234567890
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="ag-courses_item">
+                    <a href="#" class="ag-courses-item_link">
+                        <div class="ag-courses-item_bg"></div>
+
+                        <div class="ag-courses-item_title">
+                            Ranjithkumar&#160;<br><br>
+                            <h5>Chairperson</h5>
+                        </div>
+
+                        <div class="ag-courses-item_date-box">
+                            Contact:
+                            <span class="ag-courses-item_date">
+                                1234567890
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

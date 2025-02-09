@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            background: #000;
+            color: white;
+        }
+
+        nav {
+            background: #000000;
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        label.logo {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 16px;
+            padding: 8px 10px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        a.active,
+        a:hover {
+            background: #008238;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                flex-direction: row;
+                align-items: center;
+                padding: 10px 0;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            label.logo {
+                margin-bottom: 10px;
+            }
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 150px;
+            /* Adjust size as needed */
+            height: 50px;
+        }
+
+
+        #home {
+            background: url('https://wallpapercave.com/wp/wp9929782.jpg') no-repeat center center/cover;
+        }
+
+        #events {
+            background: url('https://wallpapercave.com/wp/wp9600517.jpg') no-repeat center center/cover;
+        }
+
+        #timeline {
+            background: url('https://wallpapercave.com/wp/wp9832545.jpg') no-repeat center center/cover;
+        }
+
+        #contact {
+            background: url('https://wallpapercave.com/wp/wp9832543.jpg') no-repeat center center/cover;
+        }
+
+        .heading {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+            /* Ensures heading is centered */
+            width: 100%;
+            /* Takes full width to stay centered */
+        }
+
+        .heading {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+            /* Ensures heading is centered */
+            width: 100%;
+            /* Takes full width to stay centered */
+        }
+
+
+
+
+        .section-title {
+            font-size: 2rem;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .outer {
+            width: 300px;
+            height: 250px;
+            border-radius: 10px;
+            padding: 1px;
+            background: radial-gradient(circle 230px at 0% 0%, #ffffff, #0c0d0d);
+            position: relative;
+        }
+
+        .dot {
+            width: 5px;
+            aspect-ratio: 1;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0 0 10px #ffffff;
+            border-radius: 100px;
+            z-index: 2;
+            right: 10%;
+            top: 10%;
+            animation: moveDot 6s linear infinite;
+        }
+
+        @keyframes moveDot {
+
+            0%,
+            100% {
+                top: 10%;
+                right: 10%;
+            }
+
+            25% {
+                top: 10%;
+                right: calc(100% - 35px);
+            }
+
+            50% {
+                top: calc(100% - 30px);
+                right: calc(100% - 35px);
+            }
+
+            75% {
+                top: calc(100% - 30px);
+                right: 10%;
+            }
+        }
+
+        .ray {
+            width: 220px;
+            height: 45px;
+            border-radius: 100px;
+            position: absolute;
+            background-color: #c7c7c7;
+            opacity: 0.4;
+            box-shadow: 0 0 50px #fff;
+            filter: blur(10px);
+            transform-origin: 10%;
+            top: 0%;
+            left: 0;
+            transform: rotate(40deg);
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            background-color: #2c2c2c;
+        }
+
+        .card1 {
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            border-radius: 9px;
+            border: solid 1px #202222;
+            background: radial-gradient(circle 280px at 0% 0%, #444444, #0c0d0d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #fff;
+        }
+
+        .card1 .text {
+            font-weight: bolder;
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .non-tech-container {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+        }
+
+        .topl {
+            top: 10%;
+            background: linear-gradient(90deg, #888888 30%, #1d1f1f 70%);
+        }
+
+        .bottoml {
+            bottom: 10%;
+        }
+
+        .leftl {
+            left: 10%;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, #747474 30%, #222424 70%);
+        }
+
+        .rightl {
+            right: 10%;
+            width: 1px;
+            height: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+
+            margin: 100px 0;
+        }
+        .box{
+            padding: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <nav>
+        <label class="logo">
+            <img src="https://titanui.com/wp-content/uploads/2021/10/21/Squid-Game-Logo-Vector.jpg"
+                alt="Squid Game Logo">
+        </label>
+
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="timeline.html">Timeline</a></li>
+            <li><a href="about.html">About Team</a></li>
+
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+
+
+<div class="box">
+
+    <div class="section-title">Tech Events</div>
+    <div class="container">
+        <div class="outer">
+            <div class="dot"></div>
+            <div class="card1">
+                <div class="ray"></div>
+                <div class="text">Tech 1</div>
+                <div class="line topl"></div>
+                <div class="line leftl"></div>
+                <div class="line bottoml"></div>
+                <div class="line rightl"></div>
+            </div>
+
+        </div>
+        <div class="outer">
+            <div class="dot"></div>
+            <div class="card1">
+                <div class="ray"></div>
+
+                <div class="text">Tech 2</div>
+                <div class="line topl"></div>
+                <div class="line leftl"></div>
+                <div class="line bottoml"></div>
+                <div class="line rightl"></div>
+            </div>
+        </div>
+        <div class="outer">
+            <div class="dot"></div>
+            <div class="card1">
+                <div class="ray"></div>
+
+                <div class="text">Tech 3</div>
+                <div class="line topl"></div>
+                <div class="line leftl"></div>
+                <div class="line bottoml"></div>
+                <div class="line rightl"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">Non-Tech Events</div>
+    <div class="container ">
+        <div class="outer">
+            <div class="dot"></div>
+            <div class="card1">
+                <div class="ray"></div>
+
+                <div class="text">Non-Tech 1</div>
+                <div class="line topl"></div>
+                <div class="line leftl"></div>
+                <div class="line bottoml"></div>
+                <div class="line rightl"></div>
+            </div>
+        </div>
+        <div class="outer">
+            <div class="dot"></div>
+            <div class="card1">
+                <div class="ray"></div>
+
+                <div class="text">Non-Tech 2</div>
+                <div class="line topl"></div>
+                <div class="line leftl"></div>
+                <div class="line bottoml"></div>
+                <div class="line rightl"></div>
+            </div>
+        </div>
+        <div class="outer">
+            <div class="dot"></div>
+            <div class="card1">
+                <div class="ray"></div>
+
+                <div class="text">Non-Tech 3</div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
