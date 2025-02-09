@@ -1,130 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeline</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Squid Game Marquee</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Squid+Game&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
         }
 
         body {
-            background: #000;
-            color: white;
-            padding: 50px 20px;
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000;
+            font-family: 'Squid Game', sans-serif;
+            overflow-x: hidden;
+            color: #fff;
         }
 
-        .timeline {
-            position: relative;
-            max-width: 600px;
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+            background: rgba(255, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+            border-top: 3px solid red;
+            border-bottom: 3px solid red;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 4px;
-            height: 100%;
-            background: #008238;
-            transform: translateX(-50%);
+        .marquee {
+            display: flex;
+            gap: 20px;
+            white-space: nowrap;
+            animation: marqueeScroll 20s linear infinite;
         }
 
-        .event {
-            position: relative;
-            width: 50%;
-            padding: 20px;
-            margin-bottom: 50px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
+        .marquee:hover {
+            animation-play-state: paused;
         }
 
-        .event:nth-child(even) {
-            left: 50%;
-            text-align: left;
+        .card {
+            min-width: 250px;
+            background: #111;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            border: 2px solid red;
         }
 
-        .event:nth-child(odd) {
-            left: 0;
-            text-align: right;
+        .card:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px red;
         }
 
-        .event::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 20px;
-            height: 20px;
-            background: #008238;
-            border-radius: 50%;
-            transform: translateY(-50%);
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: filter 0.3s ease-in-out;
         }
 
-        .event:nth-child(even)::before {
-            left: -10px;
+        .card:hover img {
+            filter: brightness(1);
         }
 
-        .event:nth-child(odd)::before {
-            right: -10px;
+        .card-content {
+            padding: 15px;
+            text-align: center;
         }
 
-        .event h3 {
-            font-size: 18px;
-            margin-bottom: 5px;
-            color: #ffcc00;
+        .card-content h3 {
+            font-size: 20px;
+            color: #ff0033;
+            text-transform: uppercase;
         }
 
-        .event p {
+        .card-content p {
             font-size: 14px;
+            color: #ddd;
         }
 
-        @keyframes fadeInUp {
+        @keyframes marqueeScroll {
+            from {
+                transform: translateX(100%);
+            }
+
             to {
-                opacity: 1;
-                transform: translateY(0);
+                transform: translateX(-100%);
             }
         }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .marquee {
+                animation-duration: 25s;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-    <div class="timeline">
-        <div class="event" style="animation-delay: 0s;">
-            <h3>9:00 AM - Opening Ceremony</h3>
-            <p>Kickoff event with introductions and speeches.</p>
-        </div>
-        <div class="event" style="animation-delay: 0.2s;">
-            <h3>10:00 AM - Game Round 1</h3>
-            <p>Participants compete in the first challenge.</p>
-        </div>
-        <div class="event" style="animation-delay: 0.4s;">
-            <h3>11:30 AM - Game Round 2</h3>
-            <p>Advancing participants enter the second challenge.</p>
-        </div>
-        <div class="event" style="animation-delay: 0.6s;">
-            <h3>1:00 PM - Lunch Break</h3>
-            <p>Enjoy a break with food and refreshments.</p>
-        </div>
-        <div class="event" style="animation-delay: 0.8s;">
-            <h3>2:00 PM - Semi-Finals</h3>
-            <p>Top contestants battle it out.</p>
-        </div>
-        <div class="event" style="animation-delay: 1s;">
-            <h3>4:00 PM - Grand Finale & Prize Distribution</h3>
-            <p>The final showdown and awards ceremony.</p>
+    <div class="marquee-contaner">
+        <div class="marquee">
+            <div class="card">
+                <img src="https://kongu.ac.in/webalbum/img/kec.JPG" alt="Squid Game Scene 1">
+                <div class="card-content">
+                    <h3>Red Light</h3>
+                    <p>Stop or get eliminated.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://kongu.ac.in/achievements/faculty/2023_ISTE_Hariharan.jpg" alt="Squid Game Scene 2">
+                <div class="card-content">
+                    <h3>Green Light</h3>
+                    <p>Run to survive.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://kongu.ac.in/source/recentupdates/TBISanctionedInnovators_2023.jpg"
+                    alt="Squid Game Scene 3">
+                <div class="card-content">
+                    <h3>Player 456</h3>
+                    <p>The last survivor.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://kongu.ac.in/source/recentupdates/SIH_2023.jpg" alt="Squid Game Scene 4">
+                <div class="card-content">
+                    <h3>The Guards</h3>
+                    <p>Obey or perish.</p>
+                </div>
+            </div>
         </div>
     </div>
 
 </body>
+
 </html>
