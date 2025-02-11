@@ -23,6 +23,138 @@
             height: 55%;
         }
 
+
+        .countdown1-container h2 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+        }
+
+        .countdown1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            /* Allows items to wrap on smaller screens */
+        }
+
+        .countdown1 .count1{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown1 .title {
+            background-color: #2c2c44;
+            border-radius: 5px;
+            margin-bottom: 1.3rem;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .countdown1 .title h1 {
+            color: hsl(345deg, 95%, 68%);
+            font-size: 3rem;
+        }
+
+        .countdown1 .count1 p {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.7rem;
+            color: hsl(0, 0%, 4%);
+            font-weight: 500;
+        }
+
+        .countdown1 .count1:not(:last-child) {
+            margin-right: 2rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .countdown1-container h2 {
+                font-size: 1.3rem;
+            }
+
+            .countdown1 {
+                display: flex;
+                flex-wrap: nowrap;
+                /* Ensures items stay in a row */
+                justify-content: center;
+                gap: 0.5rem;
+                /* Slight spacing between items */
+            }
+
+            .countdown1 .title {
+                width: 80px;
+                height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .countdown1 .title h1 {
+                font-size: 2.5rem;
+                line-height: normal;
+            }
+
+            .countdown1 .count1 p {
+                font-size: 0.6rem;
+            }
+
+            .countdown1 .count1:not(:last-child) {
+                margin-right: 0.5rem;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+            .countdown1-container h2 {
+                font-size: 1.1rem;
+            }
+
+            .countdown1 {
+                flex-direction: row;
+                gap: 0.1rem;
+            }
+
+            .countdown1 .title {
+                width: 70px;
+                height: 70px;
+            }
+
+            .countdown1 .title h1 {
+                font-size: 2rem;
+            }
+
+            .countdown1 .count1 p {
+                font-size: 0.55rem;
+            }
+
+            .countdown1 .count1:not(:last-child) {
+                margin-right: 0;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         .countdown-container h2 {
             font-size: 1.5rem;
             text-transform: uppercase;
@@ -201,7 +333,7 @@
         <!--The left split of the lamnding page-->
         <div class="col-sm-0 col-md-8 col-lg-6 left-split">
 
-            <img data-aos="fade-right" alt="Squid text" src="Squid game text.png" class="squid-game-head">
+            <img data-aos="fade-right" alt="Squid text" src="Frame 114.png" class="squid-game-head">
 
             <div class="pinkblur-bg"></div>
             <div class="pinkblur-bg2"></div>
@@ -260,35 +392,35 @@
                     <div class="countdown-container">
                         <h2 class="text-white">Game Starts Soon!!!</h2>
 
-                        <div class="countdown">
+                        <div class="countdown1">
                             <!-- day -->
-                            <div class="count">
+                            <div class="count1">
                                 <div class="title">
-                                    <h1 class="day"></h1>
+                                    <h1 class="day1"></h1>
                                 </div>
                                 <p>days</p>
                             </div>
 
                             <!-- hour -->
-                            <div class="count">
+                            <div class="count1">
                                 <div class="title">
-                                    <h1 class="hour"></h1>
+                                    <h1 class="hour1"></h1>
                                 </div>
                                 <p>hours</p>
                             </div>
 
                             <!-- minutes -->
-                            <div class="count">
+                            <div class="count1">
                                 <div class="title">
-                                    <h1 class="minute"></h1>
+                                    <h1 class="minute1"></h1>
                                 </div>
                                 <p>minutes</p>
                             </div>
 
                             <!-- seconds -->
-                            <div class="count">
+                            <div class="count1">
                                 <div class="title">
-                                    <h1 class="second"></h1>
+                                    <h1 class="second1"></h1>
                                 </div>
                                 <p>seconds</p>
                             </div>
@@ -297,7 +429,35 @@
                 </div>
 
                 <script src="./script.js"></script>
-                <script src="./script1.js"></script>
+                <script>function startCountdown(targetDate) {
+                    function updateCountdown() {
+                        const now = new Date().getTime();
+                        const distance = targetDate - now;
+                
+                        if (distance <= 0) {
+                            document.querySelector(".countdown1").innerHTML = "<h2>Game Started!</h2>";
+                            return;
+                        }
+                
+                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                        document.querySelector(".day1").innerText = days;
+                        document.querySelector(".hour1").innerText = hours;
+                        document.querySelector(".minute1").innerText = minutes;
+                        document.querySelector(".second1").innerText = seconds;
+                    }
+                
+                    updateCountdown(); // Call once immediately
+                    setInterval(updateCountdown, 1000); // Update every second
+                }
+                
+                // Set your countdown target date & time (Change as needed)
+                const targetDate = new Date("Feb 28, 2025 12:00:00").getTime();
+                startCountdown(targetDate);
+                </script>
 
 
 

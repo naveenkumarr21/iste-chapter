@@ -18,6 +18,58 @@
             list-style: none;
             scroll-behavior: smooth;
         }
+        .custom-btn {
+    background-color:  #E84181; /* Green color */
+    color: white;
+    margin: 16px;
+    padding: 10px 14px;
+    font-size: 8px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-btn:hover {
+    background-color: #00662a; /* Darker green */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.custom-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.custom-btn1 {
+    background-color:   #00662a; /* Green color */
+    color: white;
+    margin: 16px;
+    padding: 10px 14px;
+    font-size: 8px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-btn1:hover {
+    background-color:#E84181;  /* Darker green */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.custom-btn1:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
         body {
             font-family: "Montserrat", sans-serif;
@@ -95,9 +147,9 @@
             text-transform: uppercase;
             text-align: center;
         }
-
+      
         .logo img {
-            width: 150px;
+            width: 100%;
             /* Adjust size as needed */
             height: 50px;
         }
@@ -333,7 +385,18 @@
         .box {
             padding: 100px;
         }
-
+        footer {
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            /* Dark background */
+            color: white;
+            /* White text */
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
         #particles-js {
             position: fixed;
             width: 100%;
@@ -352,7 +415,7 @@
         particlesJS.load("particles-js", "particles-config.json", function () {
             console.log("Particles.js loaded after 1 sec");
         });
-    }, 1500);
+    }, 100);
 
 </script>
 
@@ -363,7 +426,7 @@
 
     <nav>
         <label class="logo">
-            <img src="https://titanui.com/wp-content/uploads/2021/10/21/Squid-Game-Logo-Vector.jpg"
+            <img src="Frame 114.png"
                 alt="Squid Game Logo">
         </label>
 
@@ -386,7 +449,10 @@
                 <div class="dot"></div>
                 <div class="card1">
                     <div class="ray"></div>
-                    <div class="text">Tech 1</div>
+                    <div class="text">Paper</div>
+                    <h5>Presentation</h5>
+                    <br>
+                    <button class="custom-btn" onclick="window.location.href='https://www.example.com'">Register</button>
                     <div class="line topl"></div>
                     <div class="line leftl"></div>
                     <div class="line bottoml"></div>
@@ -399,7 +465,11 @@
                 <div class="card1">
                     <div class="ray"></div>
 
-                    <div class="text">Tech 2</div>
+                    <div class="text">Coding</div>
+                    <h5>Contest</h5>
+                    <br>
+                    <button class="custom-btn" onclick="window.location.href='https://www.example.com'">Register</button>
+                    
                     <div class="line topl"></div>
                     <div class="line leftl"></div>
                     <div class="line bottoml"></div>
@@ -411,7 +481,11 @@
                 <div class="card1">
                     <div class="ray"></div>
 
-                    <div class="text">Tech 3</div>
+                    <div class="text">Tech</div>
+                    <h5>Quiz</h5>
+                    <br>
+                    <button class="custom-btn" onclick="window.location.href='https://www.example.com'">Register</button>
+                    
                     <div class="line topl"></div>
                     <div class="line leftl"></div>
                     <div class="line bottoml"></div>
@@ -427,7 +501,11 @@
                 <div class="card1">
                     <div class="ray"></div>
 
-                    <div class="text">Non-Tech 1</div>
+                    <div class="text">Squid</div>
+                    <h5>Game</h5>
+                    <br>
+                    <button class="custom-btn1" onclick="window.location.href='https://www.example.com'">Register</button>
+                    
                     <div class="line topl"></div>
                     <div class="line leftl"></div>
                     <div class="line bottoml"></div>
@@ -439,7 +517,11 @@
                 <div class="card1">
                     <div class="ray"></div>
 
-                    <div class="text">Non-Tech 2</div>
+                    <div class="text">IPL</div>
+                    <h5>Auction</h5>
+                    <br>
+                    <button class="custom-btn1" onclick="window.location.href='https://www.example.com'">Register</button>
+                    
                     <div class="line topl"></div>
                     <div class="line leftl"></div>
                     <div class="line bottoml"></div>
@@ -462,12 +544,22 @@
                 <div class="card1">
                     <div class="ray"></div>
 
-                    <div class="text">Non-Tech 3</div>
+                    <div class="text">Treasure</div>
+                    <h5>Hunt</h5>
+                    <br>
+                    <button class="custom-btn1" onclick="window.location.href='https://www.example.com'">Register</button>
+                    
+                    <div class="line topl"></div>
+                    <div class="line leftl"></div>
+                    <div class="line bottoml"></div>
+                    <div class="line rightl"></div>
 
                 </div>
             </div>
         </div>
-    </div>
+    </div><footer>
+        Developed by Naveenkumar R - IT
+    </footer>
 </body>
 
 </html>

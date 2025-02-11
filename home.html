@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Squid Game Navbar</title>
-    <style src="events.css" rel="stylesheet"></style>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <style>
@@ -26,7 +27,7 @@
         }
 
         nav {
-            background: #000000;
+            background: #000;
             height: 80px;
             width: 100%;
             display: flex;
@@ -38,11 +39,9 @@
             z-index: 1000;
         }
 
-        label.logo {
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
+        label.logo img {
+            width: 100%;
+            height: 50px;
         }
 
         nav ul {
@@ -63,6 +62,7 @@
             background: #008238;
         }
 
+        /* Responsive Navbar */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -85,142 +85,82 @@
             }
         }
 
-        section {
-            height: 100vh;
+        /* Image Container for 16:9 Aspect Ratio */
+        .hero-container {
+            margin-top: 95px;
+            /* Avoid overlap with fixed navbar */
+            width: 100%;
+            /* Ensures it fits the screen */
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 32px;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-align: center;
+            align-items: center;
         }
 
-        .logo img {
-            width: 150px;
-            /* Adjust size as needed */
-            height: 50px;
-        }
-
-
-        #home {
-            background: url('https://wallpapercave.com/wp/wp9929782.jpg') no-repeat center center/cover;
-        }
-
-        #events {
-            background: url('https://wallpapercave.com/wp/wp9600517.jpg') no-repeat center center/cover;
-        }
-
-        #timeline {
-            background: url('https://wallpapercave.com/wp/wp9832545.jpg') no-repeat center center/cover;
-        }
-
-        #contact {
-            background: url('https://wallpapercave.com/wp/wp9832543.jpg') no-repeat center center/cover;
-        }
-
-        .heading {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #333;
-            text-align: center;
-            /* Ensures heading is centered */
+        /* Adjust Image Size */
+        .hero-container img {
             width: 100%;
-            /* Takes full width to stay centered */
-        }
-
-        .hero-img {
-            width: 100%;
-            max-height: 100%;
+            /* Adjust image size */
+            max-width: 100%;
+            /* Ensures it doesn't get too large */
+            height: auto;
+            /* Maintains aspect ratio */
             object-fit: cover;
-            display: block;
-            margin: 0 auto;
+            /* Prevents distortion */
+            border-radius: 10px;
+            /* Optional: Rounds corners for a better look */
         }
 
         @media (max-width: 768px) {
-            .hero-img {
-                height: 90vh;
-                width: 100%;
-                object-fit: cover;
-                transform: scale(1.2);
-                /* Zooms out the image */
-                transition: transform 0.3s ease-in-out;
-                /* Smooth transition */
+            .hero-container {
+                margin-top: 120px;
+                /* Adjust top margin for mobile */
+                margin-bottom: 30px;
+                /* Add bottom margin for spacing */
             }
         }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
 
-
-
-
-
-
+            .hero-container img {
+                width: 100%;
+                /* Slightly larger for mobile */
+                max-width: 100%;
+            }
+        }
 
         .marquee-container {
+            margin-top: 100px;
+            margin-bottom: 100px;
+
             width: 100%;
             overflow: hidden;
-            padding: 20px 0;
-            background: rgba(255, 0, 0, 0.1);
-            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
-            border-top: 3px solid red;
-            border-bottom: 3px solid red;
+            white-space: nowrap;
+            position: relative;
         }
 
         .marquee {
             display: flex;
-            gap: 20px;
-            white-space: nowrap;
-            animation: marqueeScroll 20s linear infinite;
+            gap: 30px;
+            /* Increased spacing between images */
+            animation: marquee 15s linear infinite;
+            /* Slower speed */
         }
 
-        .marquee:hover {
-            animation-play-state: paused;
-        }
-
-        .card4 {
-            min-width: 250px;
-            background: #111;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
-            overflow: hidden;
+        .marquee img {
+            width: 200px;
+            /* Increased size */
+            height: auto;
             transition: transform 0.3s ease-in-out;
-            border: 2px solid red;
+            /* Smooth transition effect */
         }
 
-        .card4:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 20px red;
+        .marquee img:hover {
+            transform: scale(1.1);
+            /* Slight zoom effect on hover */
         }
 
-        .card4 img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            filter: brightness(0.7);
-            transition: filter 0.3s ease-in-out;
-        }
-
-        .card4:hover img {
-            filter: brightness(1);
-        }
-
-        .card4-content {
-            padding: 15px;
-            text-align: center;
-        }
-
-        .card4-content h3 {
-            font-size: 20px;
-            color: #ff0033;
-            text-transform: uppercase;
-        }
-
-        .card4-content p {
-            font-size: 14px;
-            color: #ddd;
-        }
-
-        @keyframes marqueeScroll {
+        @keyframes marquee {
             from {
                 transform: translateX(100%);
             }
@@ -230,19 +170,83 @@
             }
         }
 
-        /* Responsive Design */
+        h1 {
+            display: flex;
+            margin-top: 1;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        footer {
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            /* Dark background */
+            color: white;
+            /* White text */
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
         @media (max-width: 768px) {
-            .marquee {
-                animation-duration: 25s;
+            h1 {
+                font-size: 10px;
+                /* Slightly smaller for mobile */
             }
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            /* Ensures particles stay in the background */
+            background: #000;
+            /* Change to match your theme */
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            /* Ensures particles stay in the background */
+            background: #000;
+            /* Change to match your theme */
         }
     </style>
 </head>
 
-<body>
+<body>    <div id="particles-js"></div>
+
+    <script>
+        setTimeout(() => {
+            particlesJS.load("particles-js", "particles-config.json", function () {
+                console.log("Particles.js loaded after 1 sec");
+            });
+        }, 100);
+    
+    </script>
+      <script src="./script.js"></script>
+      <script src="./script1.js"></script>
+
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+          AOS.init({
+              offset: 200,
+              duration: 2500
+          });
+      </script>
     <nav>
         <label class="logo">
-            <img src="https://titanui.com/wp-content/uploads/2021/10/21/Squid-Game-Logo-Vector.jpg"
+            <img src="Frame 114.png"
                 alt="Squid Game Logo">
         </label>
 
@@ -250,49 +254,30 @@
             <li><a href="home.html">Home</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="timeline.html">Timeline</a></li>
-
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-<!-- Bootstrap CSS (Include in <head>) -->
 
-    <!-- Hero Image -->
-    <div class="container-fluid p-0">
-        <img class="img-fluid hero-img" src="Frame 113.png" alt="Squid Game">
+    <!-- Hero Image Container for 16:9 -->
+    <div class="hero-container">
+        <img src="Frame 113.png" alt="Squid Game Hero Image">
     </div>
-        <div class="marquee-contaner">
-        <div class="marquee">
-            <div class="card4">
-                <img src="https://kongu.ac.in/webalbum/img/kec.JPG" alt="Squid Game Scene 1">
-                <div class="card-content">
-                    <h3>Red Light</h3>
-                    <p>Stop or get eliminated.</p>
-                </div>
-            </div>
-            <div class="card4">
-                <img src="https://kongu.ac.in/achievements/faculty/2023_ISTE_Hariharan.jpg" alt="Squid Game Scene 2">
-                <div class="card-content">
-                    <h3>Green Light</h3>
-                    <p>Run to survive.</p>
-                </div>
-            </div>
-            <div class="card4">
-                <img src="https://kongu.ac.in/source/recentupdates/TBISanctionedInnovators_2023.jpg"
-                    alt="Squid Game Scene 3">
-                <div class="card-content">
-                    <h3>Player 456</h3>
-                    <p>The last survivor.</p>
-                </div>
-            </div>
-            <div class="card4">
-                <img src="https://kongu.ac.in/source/recentupdates/SIH_2023.jpg" alt="Squid Game Scene 4">
-                <div class="card-content">
-                    <h3>The Guards</h3>
-                    <p>Obey or perish.</p>
-                </div>
-            </div>
+    <div class="marquee-container">
+        <h1 style="text-align: center;">Glimpse Of KEC ISTE Student's Chapter</h1>
+        <br> <div class="marquee">
+            <img src="https://app.afternoonnews.in/storage/images/5/vw1JB57HWLNSICoDTvxvucGtWFAZuidRyVfW1roL.jpg"
+                alt="Image 1">
+            <img src="https://kongu.ac.in/achievements/faculty/2023_ISTE_Hariharan.jpg" alt="Image 2">
+            <img src="https://kongu.ac.in/source/recentupdates/SIH_2023.jpg" alt="Image 3">
+            <img src="https://kongu.ac.in/center_excellence/images/coe_apd.jpeg" alt="Image 4">
+            <img src="https://kongu.ac.in/source/recentupdates/SIH_2022.jpg" alt="Image 5">
+            <img src="https://kongu.ac.in/achievements/faculty/2002_mech_sathish.jpg" alt="Image 6">
         </div>
     </div>
+    <footer>
+        Developed by Naveenkumar R - IT
+    </footer>
+
 </body>
 
 </html>

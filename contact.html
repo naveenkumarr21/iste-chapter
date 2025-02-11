@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>Squid Game Navbar</title>
     <style src="events.css" rel="stylesheet"></style>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <style>
@@ -97,7 +99,7 @@
         }
 
         .logo img {
-            width: 150px;
+            width: 100%;
             /* Adjust size as needed */
             height: 50px;
         }
@@ -235,15 +237,15 @@
         }
 
         .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
-            background-color: #3ecd5e;
+            background-color: #008f1f;
         }
 
         .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
-            background-color: #e44002;
+            background-color: #E84181;
         }
 
         .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
-            background-color: #952aff;
+            background-color: #008f1f;
         }
 
         .ag-courses_item:nth-child(5n) .ag-courses-item_bg {
@@ -251,7 +253,7 @@
         }
 
         .ag-courses_item:nth-child(6n) .ag-courses-item_bg {
-            background-color: #4c49ea;
+            background-color: #008f1f;
         }
 
 
@@ -300,14 +302,53 @@
             margin: 10px;
             padding: 100px;
         }
+
+        footer {
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            /* Dark background */
+            color: white;
+            /* White text */
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            /* Ensures particles stay in the background */
+            background: #000;
+            /* Change to match your theme */
+        }
     </style>
 </head>
 
 <body>
+
+
+    <script>
+        setTimeout(() => {
+            particlesJS.load("particles-js", "particles-config.json", function () {
+                console.log("Particles.js loaded after 1 sec");
+            });
+        }, 100);
+
+    </script>
+
+
+
+    <div id="particles-js"></div>
+
     <nav>
         <label class="logo">
-            <img src="https://titanui.com/wp-content/uploads/2021/10/21/Squid-Game-Logo-Vector.jpg"
-                alt="Squid Game Logo">
+            <img src="Frame 114.png" alt="Squid Game Logo">
         </label>
 
         <ul>
@@ -333,7 +374,7 @@
                         <div class="ag-courses-item_date-box">
                             Contact:
                             <span class="ag-courses-item_date">
-                                1234567890
+                                +91 95979 28987
                             </span>
                         </div>
                     </a>
@@ -344,14 +385,14 @@
                         <div class="ag-courses-item_bg"></div>
 
                         <div class="ag-courses-item_title">
-                            Ranjithkumar&#160;<br><br>
-                            <h5>Chairperson</h5>
+                            Srinath&#160;<br><br>
+                            <h5>Secretary</h5>
                         </div>
 
                         <div class="ag-courses-item_date-box">
                             Contact:
                             <span class="ag-courses-item_date">
-                                1234567890
+                                +91 70107 68854
                             </span>
                         </div>
                     </a>
@@ -362,14 +403,14 @@
                         <div class="ag-courses-item_bg"></div>
 
                         <div class="ag-courses-item_title">
-                            Ranjithkumar&#160;<br><br>
-                            <h5>Chairperson</h5>
+                            Paandieaswaran&#160;<br><br>
+                            <h5></h5>
                         </div>
 
                         <div class="ag-courses-item_date-box">
                             Contact:
                             <span class="ag-courses-item_date">
-                                1234567890
+                                +91 94452 42957
                             </span>
                         </div>
                     </a>
@@ -380,14 +421,14 @@
                         <div class="ag-courses-item_bg"></div>
 
                         <div class="ag-courses-item_title">
-                            Ranjithkumar&#160;<br><br>
-                            <h5>Chairperson</h5>
+                            Abinaya&#160;<br><br>
+                            <h5></h5>
                         </div>
 
                         <div class="ag-courses-item_date-box">
                             Contact:
                             <span class="ag-courses-item_date">
-                                1234567890
+                                +91 86672 35579
                             </span>
                         </div>
                     </a>
@@ -398,60 +439,27 @@
                         <div class="ag-courses-item_bg"></div>
 
                         <div class="ag-courses-item_title">
-                            Ranjithkumar&#160;<br><br>
-                            <h5>Chairperson</h5>
+                            Barath&#160;<br><br>
+                            <h5></h5>
                         </div>
 
                         <div class="ag-courses-item_date-box">
                             Contact:
                             <span class="ag-courses-item_date">
-                                1234567890
+                                +91 80722 95598
                             </span>
                         </div>
                     </a>
                 </div>
 
-                <div class="ag-courses_item">
-                    <a href="#" class="ag-courses-item_link">
-                        <div class="ag-courses-item_bg"></div>
-
-                        <div class="ag-courses-item_title">
-                            Ranjithkumar&#160;<br><br>
-                            <h5>Chairperson</h5>
-                        </div>
-
-                        <div class="ag-courses-item_date-box">
-                            Contact:
-                            <span class="ag-courses-item_date">
-                                1234567890
-                            </span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="ag-courses_item">
-                    <a href="#" class="ag-courses-item_link">
-                        <div class="ag-courses-item_bg"></div>
-
-                        <div class="ag-courses-item_title">
-                            Ranjithkumar&#160;<br><br>
-                            <h5>Chairperson</h5>
-                        </div>
-
-                        <div class="ag-courses-item_date-box">
-                            Contact:
-                            <span class="ag-courses-item_date">
-                                1234567890
-                            </span>
-                        </div>
-                    </a>
-                </div>
-
+               
 
             </div>
         </div>
     </div>
-
+    <footer>
+        Developed by Naveenkumar R - IT
+    </footer>
 </body>
 
 </html>

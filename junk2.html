@@ -2,107 +2,141 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>Squid Game Navbar with Marquee</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Squid Game Marquee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Squid+Game&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            scroll-behavior: smooth;
         }
 
         body {
+            font-family: "Montserrat", sans-serif;
+            background: #000;
+            color: white;
+        }
+
+        /* Navbar */
+        nav {
+            background: #000;
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.7); /* Squid Game Theme Shadow */
+        }
+
+        label.logo img {
+            width: 150px;
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 16px;
+            padding: 8px 10px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        a.active,
+        a:hover {
+            background: #008238;
+        }
+
+        /* Hero Image */
+        .hero-container {
+            margin-top: 95px;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background-color: #000;
-            font-family: 'Squid Game', sans-serif;
-            overflow-x: hidden;
-            color: #fff;
         }
 
+        .hero-container img {
+            width: 100%;
+            max-width: 900px; /* Ensuring it doesn't get too big */
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Marquee Section */
         .marquee-container {
             width: 100%;
             overflow: hidden;
+            margin-top: 30px;
+            white-space: nowrap;
+            position: relative;
             padding: 20px 0;
-            background: rgba(255, 0, 0, 0.1);
-            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
-            border-top: 3px solid red;
-            border-bottom: 3px solid red;
+            background: rgba(0, 0, 0, 0.8); /* Dark background for contrast */
         }
 
-        .marquee {
+        .marquee-content {
             display: flex;
             gap: 20px;
-            white-space: nowrap;
-            animation: marqueeScroll 20s linear infinite;
+            animation: marquee 15s linear infinite;
+            width: calc(150px * 7 * 2); /* Adjust width for infinite loop */
         }
 
-        .marquee:hover {
-            animation-play-state: paused;
-        }
-
-        .card {
-            min-width: 250px;
-            background: #111;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
-            overflow: hidden;
+        .marquee-content img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
             transition: transform 0.3s ease-in-out;
-            border: 2px solid red;
         }
 
-        .card:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 20px red;
+        .marquee-content img:hover {
+            transform: scale(1.1);
         }
 
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            filter: brightness(0.7);
-            transition: filter 0.3s ease-in-out;
-        }
-
-        .card:hover img {
-            filter: brightness(1);
-        }
-
-        .card-content {
-            padding: 15px;
-            text-align: center;
-        }
-
-        .card-content h3 {
-            font-size: 20px;
-            color: #ff0033;
-            text-transform: uppercase;
-        }
-
-        .card-content p {
-            font-size: 14px;
-            color: #ddd;
-        }
-
-        @keyframes marqueeScroll {
-            from {
-                transform: translateX(100%);
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
             }
-
-            to {
-                transform: translateX(-100%);
+            100% {
+                transform: translateX(-50%);
             }
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .marquee {
-                animation-duration: 25s;
+            .hero-container {
+                margin-top: 80px;
+                margin-bottom: 20px;
+            }
+
+            .marquee-content img {
+                width: 120px; /* Smaller images on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-container {
+                margin-top: 70px;
+                margin-bottom: 30px;
+            }
+
+            .marquee-content img {
+                width: 100px;
             }
         }
     </style>
@@ -110,40 +144,46 @@
 
 <body>
 
-    <div class="marquee-contaner">
-        <div class="marquee">
-            <div class="card">
-                <img src="https://kongu.ac.in/webalbum/img/kec.JPG" alt="Squid Game Scene 1">
-                <div class="card-content">
-                    <h3>Red Light</h3>
-                    <p>Stop or get eliminated.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://kongu.ac.in/achievements/faculty/2023_ISTE_Hariharan.jpg" alt="Squid Game Scene 2">
-                <div class="card-content">
-                    <h3>Green Light</h3>
-                    <p>Run to survive.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://kongu.ac.in/source/recentupdates/TBISanctionedInnovators_2023.jpg"
-                    alt="Squid Game Scene 3">
-                <div class="card-content">
-                    <h3>Player 456</h3>
-                    <p>The last survivor.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://kongu.ac.in/source/recentupdates/SIH_2023.jpg" alt="Squid Game Scene 4">
-                <div class="card-content">
-                    <h3>The Guards</h3>
-                    <p>Obey or perish.</p>
-                </div>
-            </div>
+    <!-- Navbar -->
+    <nav>
+        <label class="logo">
+            <img src="https://titanui.com/wp-content/uploads/2021/10/21/Squid-Game-Logo-Vector.jpg" alt="Squid Game Logo">
+        </label>
+
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="timeline.html">Timeline</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Image -->
+    <div class="hero-container">
+        <img src="https://wallpapercave.com/wp/wp9929782.jpg" alt="Squid Game Hero Image">
+    </div>
+
+    <!-- Marquee Section -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <img src="https://wallpapercave.com/wp/wp9929782.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9600517.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9832545.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9832543.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9600517.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9832545.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9832543.jpg" alt="Squid Game Image">
+            
+            <!-- Duplicate for infinite scrolling -->
+            <img src="https://wallpapercave.com/wp/wp9929782.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9600517.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9832545.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9832543.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9600517.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9832545.jpg" alt="Squid Game Image">
+            <img src="https://wallpapercave.com/wp/wp9832543.jpg" alt="Squid Game Image">
         </div>
     </div>
 
 </body>
-
 </html>
